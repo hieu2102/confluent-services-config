@@ -1,2 +1,3 @@
 secret.properties
 mds/*
+*.jar
