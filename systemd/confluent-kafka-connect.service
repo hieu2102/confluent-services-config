@@ -1,0 +1,16 @@
+[Unit]
+Description=Apache Kafka Connect - distributed
+Documentation=http://docs.confluent.io/
+After=network.target confluent-server.target
+
+[Service]
+Type=simple
+User=cp-kafka-connect
+Group=confluent
+Environment="KAFKA_LOG4J_OPTS=-Dlog4j.configuration=file:/opt/confluent/connect/connect-log4j.properties -Dlog4j.config.dir=/opt/confluent/connect"
+ExecStart=/usr/bin/connect-distributed /opt/confluent/connect/connect-distributed.properties
+TimeoutStopSec=180
+Restart=no
+
+[Install]
+WantedBy=multi-user.target

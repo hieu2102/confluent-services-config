@@ -1,0 +1,17 @@
+[Unit]
+Description=Apache Kafka - ZooKeeper
+Documentation=http://docs.confluent.io/
+After=network.target
+
+[Service]
+Type=simple
+User=cp-kafka
+Group=confluent
+Environment="KAFKA_LOG4J_OPTS=-Dlog4j.configuration=file:/opt/confluent/kafka/log4j-zookeeper.properties"
+ExecStart=/usr/bin/zookeeper-server-start /opt/confluent/kafka/zookeeper.properties
+LimitNOFILE=100000
+TimeoutStopSec=180
+Restart=no
+
+[Install]
+WantedBy=multi-user.target

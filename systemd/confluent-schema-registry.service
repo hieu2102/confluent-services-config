@@ -1,0 +1,17 @@
+[Unit]
+Description=RESTful Avro schema registry for Apache Kafka
+Documentation=http://docs.confluent.io/
+After=network.target confluent-kafka.target
+
+[Service]
+Type=simple
+User=cp-schema-registry
+Group=confluent
+Environment="LOG_DIR=/var/log/confluent/schema-registry"
+Environment="SCHEMA_REGISTRY_LOG4J_OPTS=-Dlog4j.configuration=file:/opt/confluent/schema-registry/log4j.properties"
+ExecStart=/usr/bin/schema-registry-start /opt/confluent/schema-registry/schema-registry.properties
+TimeoutStopSec=180
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
