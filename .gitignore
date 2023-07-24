@@ -1,3 +1,5 @@
 secret.properties
 mds/*
 *.jar
+elasticsearch/certs
+*.keystore
