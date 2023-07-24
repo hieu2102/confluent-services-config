@@ -18,10 +18,12 @@ filebeat.config.modules:
   reload.enabled: true
   reload.period: 60s
 
-setup.template.settings:
-  index.number_of_shards: 1
-  #index.codec: best_compression
-  #_source.enabled: false
+setup:
+  ilm.enabled: false
+  template.settings:
+    index.number_of_shards: 1
+    #index.codec: best_compression
+    #_source.enabled: false
 
 
 output.elasticsearch:
