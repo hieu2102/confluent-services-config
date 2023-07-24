@@ -20,11 +20,14 @@ filebeat.config.modules:
 
 setup:
   ilm.enabled: false
-  template.settings:
-    index.number_of_shards: 1
-    #index.codec: best_compression
-    #_source.enabled: false
-
+  template:
+    name: "confluent"
+    pattern: "confluent-*"
+    enabled: false
+    settings:
+      index.number_of_shards: 1
+      #index.codec: best_compression
+      #_source.enabled: false
 
 output.elasticsearch:
   hosts: ["elasticsearch.confluent.bnh.vn"]
@@ -35,18 +38,18 @@ output.elasticsearch:
 
 # ------------------------------ Logstash Output -------------------------------
 #output.logstash:
-  # The Logstash hosts
-  #hosts: ["localhost:5044"]
+# The Logstash hosts
+#hosts: ["localhost:5044"]
 
-  # Optional SSL. By default is off.
-  # List of root certificates for HTTPS server verifications
-  #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+# Optional SSL. By default is off.
+# List of root certificates for HTTPS server verifications
+#ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
 
-  # Certificate for SSL client authentication
-  #ssl.certificate: "/etc/pki/client/cert.pem"
+# Certificate for SSL client authentication
+#ssl.certificate: "/etc/pki/client/cert.pem"
 
-  # Client Certificate Key
-  #ssl.key: "/etc/pki/client/cert.key"
+# Client Certificate Key
+#ssl.key: "/etc/pki/client/cert.key"
 
 # ================================= Processors =================================
 processors:
@@ -55,7 +58,6 @@ processors:
   - add_cloud_metadata: ~
   - add_docker_metadata: ~
   - add_kubernetes_metadata: ~
-
 # ================================== Logging ===================================
 
 # Sets log level. The default log level is info.
