@@ -1,0 +1,10 @@
+# Docs: https://www.elastic.co/guide/en/beats/filebeat/8.8/filebeat-module-zookeeper.html
+- module: zookeeper
+  audit:
+    enabled: true
+    var.paths:
+      - "/var/log/kafka/zookeeper-audit.log"
+  log:
+    enabled: true
+    var.paths:
+      - "/var/log/kafka/zookeeper.log"
