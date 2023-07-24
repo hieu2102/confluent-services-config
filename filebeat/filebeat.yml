@@ -34,7 +34,7 @@ output.elasticsearch:
   protocol: "http"
   username: "elastic"
   password: "xPEIOhWP+kgZzfKGJY5m"
-  index: "confluent"
+  index: "confluent-%{[agent.version]}-%{+yyyy.MM.dd}"
 
 # ------------------------------ Logstash Output -------------------------------
 #output.logstash:
