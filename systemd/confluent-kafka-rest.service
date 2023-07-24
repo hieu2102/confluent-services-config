@@ -8,7 +8,7 @@ Type=simple
 User=cp-kafka-rest
 Group=confluent
 Environment="LOG_DIR=/var/log/confluent/kafka-rest"
-ExecStart=/usr/bin/kafka-rest-start /opt/confluent/rest-proxy/kafka-rest.properties
+ExecStart=/usr/bin/kafka-rest-start /opt/confluent/confluent-platform/rest-proxy/kafka-rest.properties
 LimitNOFILE=100000
 TimeoutStopSec=180
 Restart=no

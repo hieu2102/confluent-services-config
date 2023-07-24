@@ -7,8 +7,8 @@ After=network.target confluent-server.target
 Type=simple
 User=cp-kafka-connect
 Group=confluent
-Environment="KAFKA_LOG4J_OPTS=-Dlog4j.configuration=file:/opt/confluent/connect/connect-log4j.properties -Dlog4j.config.dir=/opt/confluent/connect"
-ExecStart=/usr/bin/connect-distributed /opt/confluent/connect/connect-distributed.properties
+Environment="KAFKA_LOG4J_OPTS=-Dlog4j.configuration=file:/opt/confluent/confluent-platform/connect/connect-log4j.properties -Dlog4j.config.dir=/opt/confluent/confluent-platform/connect"
+ExecStart=/usr/bin/connect-distributed /opt/confluent/confluent-platform/connect/connect-distributed.properties
 TimeoutStopSec=180
 Restart=no
 
