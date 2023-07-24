@@ -8,6 +8,7 @@ Type=simple
 User=cp-ksql
 Group=confluent
 Environment="LOG_DIR=/var/log/confluent/ksql"
+Environment="KSQL_LOG4J_OPTS=-Dlog4j.configuration=file:/opt/confluent/ksqldb/log4j.properties"
 ExecStart=/usr/bin/ksql-server-start /opt/confluent/ksqldb/ksqldb.properties
 TimeoutStopSec=180
 Restart=no
