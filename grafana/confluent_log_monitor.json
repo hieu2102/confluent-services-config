@@ -1,0 +1,346 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 3,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "e9029627-3e3c-4b90-ad42-4c71e9e1c06e"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "align": "left",
+              "cellOptions": {
+                "type": "auto"
+              },
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "host.hostname"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 143
+                },
+                {
+                  "id": "custom.align",
+                  "value": "center"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "@timestamp"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 174
+                },
+                {
+                  "id": "custom.align",
+                  "value": "center"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "kafka.log.class"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 386
+                },
+                {
+                  "id": "custom.align",
+                  "value": "center"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "log.level"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 88
+                },
+                {
+                  "id": "custom.align",
+                  "value": "center"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "kafka.log.trace.class"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 300
+                },
+                {
+                  "id": "custom.align",
+                  "value": "center"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "log.file.path"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 278
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Logger"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 236
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Trace Class"
+              },
+              "properties": [
+                {
+                  "id": "custom.width",
+                  "value": 246
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 1,
+        "options": {
+          "cellHeight": "sm",
+          "footer": {
+            "countRows": false,
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "showHeader": true,
+          "sortBy": []
+        },
+        "pluginVersion": "10.0.2",
+        "targets": [
+          {
+            "alias": "",
+            "bucketAggs": [],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "e9029627-3e3c-4b90-ad42-4c71e9e1c06e"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "id": "1",
+                "settings": {
+                  "size": "500"
+                },
+                "type": "raw_data"
+              }
+            ],
+            "query": "",
+            "refId": "B",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "Broker Logs",
+        "transformations": [
+          {
+            "id": "organize",
+            "options": {
+              "excludeByName": {
+                "_id": true,
+                "_index": true,
+                "_type": true,
+                "agent.ephemeral_id": true,
+                "agent.id": true,
+                "agent.name": true,
+                "agent.type": true,
+                "agent.version": true,
+                "ecs.version": true,
+                "error.log": true,
+                "event.created": true,
+                "event.dataset": true,
+                "event.ingested": true,
+                "event.kind": true,
+                "event.module": true,
+                "event.timezone": true,
+                "event.type": true,
+                "fileset.name": true,
+                "highlight": true,
+                "host.architecture": true,
+                "host.containerized": true,
+                "host.id": true,
+                "host.ip": true,
+                "host.mac": true,
+                "host.name": true,
+                "host.os.family": true,
+                "host.os.kernel": true,
+                "host.os.name": true,
+                "host.os.platform": true,
+                "host.os.type": true,
+                "host.os.version": true,
+                "input.type": true,
+                "kafka.log.component": true,
+                "kafka.log.trace.message": false,
+                "log.file.path": false,
+                "log.flags": true,
+                "log.offset": true,
+                "service.type": true,
+                "sort": true
+              },
+              "indexByName": {
+                "@timestamp": 0,
+                "_id": 2,
+                "_index": 3,
+                "_type": 4,
+                "agent.ephemeral_id": 5,
+                "agent.id": 6,
+                "agent.name": 7,
+                "agent.type": 8,
+                "agent.version": 9,
+                "ecs.version": 10,
+                "error.log": 11,
+                "event.created": 12,
+                "event.dataset": 13,
+                "event.ingested": 14,
+                "event.kind": 15,
+                "event.module": 16,
+                "event.timezone": 17,
+                "event.type": 18,
+                "fileset.name": 19,
+                "highlight": 20,
+                "host.architecture": 21,
+                "host.containerized": 22,
+                "host.hostname": 23,
+                "host.id": 24,
+                "host.ip": 25,
+                "host.mac": 26,
+                "host.name": 27,
+                "host.os.family": 28,
+                "host.os.kernel": 29,
+                "host.os.name": 30,
+                "host.os.platform": 31,
+                "host.os.type": 32,
+                "host.os.version": 33,
+                "input.type": 34,
+                "kafka.log.class": 35,
+                "kafka.log.component": 36,
+                "kafka.log.trace.class": 37,
+                "kafka.log.trace.message": 38,
+                "log.file.path": 1,
+                "log.flags": 39,
+                "log.level": 40,
+                "log.offset": 41,
+                "message": 42,
+                "service.type": 43,
+                "sort": 44
+              },
+              "renameByName": {
+                "@timestamp": "",
+                "host.hostname": "hostname",
+                "kafka.log.class": "Logger",
+                "kafka.log.trace.class": "Trace Class",
+                "kafka.log.trace.message": "Trace Message",
+                "log.file.path": "",
+                "log.level": "Log Level",
+                "log.offset": ""
+              }
+            }
+          }
+        ],
+        "type": "table"
+      }
+    ],
+    "refresh": "5s",
+    "schemaVersion": 38,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-5m",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Confluent Log Tracing",
+    "uid": "bb6a4ec1-2232-4a0d-9763-29305bd48da1",
+    "version": 1,
+    "weekStart": ""
+  }
