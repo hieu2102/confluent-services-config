@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cp -i ./*.service /usr/lib/systemd/system/
+cp -i ./systemd/*.service /usr/lib/systemd/system/
 
 systemctl daemon-reload
