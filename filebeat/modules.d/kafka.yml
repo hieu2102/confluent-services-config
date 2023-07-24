@@ -1,0 +1,9 @@
+# Module: kafka
+# Docs: https://www.elastic.co/guide/en/beats/filebeat/8.8/filebeat-module-kafka.html
+
+- module: kafka
+  # All logs
+  log:
+    enabled: true
+    #var.kafka_home:
+    var.paths: ["/var/log/kafka/*.log"]
