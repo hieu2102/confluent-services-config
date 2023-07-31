@@ -8,6 +8,7 @@ Type=simple
 User=cp-kafka-connect
 Group=confluent
 Environment="KAFKA_LOG4J_OPTS=-Dlog4j.configuration=file:/opt/confluent/confluent-platform/connect/connect-log4j.properties -Dlog4j.config.dir=/opt/confluent/confluent-platform/connect"
+Environment="KAFKA_OPTS=-javaagent:/opt/confluent/prometheus/jmx_prometheus_javaagent-0.19.0.jar=1234:/opt/confluent/prometheus/kafka_broker.yml"
 ExecStart=/usr/bin/connect-distributed /opt/confluent/confluent-platform/connect/connect-distributed.properties
 TimeoutStopSec=180
 Restart=no

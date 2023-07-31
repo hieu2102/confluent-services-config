@@ -35,3 +35,8 @@ scrape_configs:
           - "kafka-03:1234"
         labels:
           env: "dev"
+  - job_name: debezium
+    scrape_interval: 5s
+    static_configs:
+      - targets:
+          - kconnect:1234
